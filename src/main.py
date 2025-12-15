@@ -8,7 +8,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-BASE_URL = "http://tv.roarzone.info/"
+BASE_URL = "http://100.10.20.10/"
 PLAYER_URL_TEMPLATE = "http://tv.roarzone.info/player.php?stream={}"
 
 
