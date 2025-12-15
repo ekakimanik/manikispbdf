@@ -8,8 +8,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-BASE_URL = "http://100.10.20.10/"
-PLAYER_URL_TEMPLATE = "http://tv.roarzone.info/player.php?stream={}"
+BASE_URL = "http://100.10.20.10"
+PLAYER_URL_TEMPLATE = "http://100.10.20.10/player.php?stream={}"
 
 
 async def fetch_main_page(session):
