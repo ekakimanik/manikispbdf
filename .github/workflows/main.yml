@@ -2,7 +2,7 @@ name: Run Python Script
 
 on:
   schedule:
-    - cron: "/15 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,8 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,10 +28,11 @@ jobs:
       - name: Run script
         run: python src/main.py
 
-      - name: Commit and push if it changed
-  uses: EndBug/add-and-commit@v9
-  with:
-    author_name: "GitHub Actions"
-    author_email: "actions@github.com"
-    message: "Update playlist.m3u"
-    add: "playlist.m3u"
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: Auto update playlist
+          add: .
+          push: true
